@@ -85,7 +85,7 @@ function Home({ changeTheme, theme }) {
 
   const [ layout, setLayout ] = useState('grid')
   const [ search, setSearch ] = useState('')
-  const [ hideMultichain, setHideMultichain ] = useState('1')
+  const [ hideMultichain, setHideMultichain ] = useState('0')
   const router = useRouter()
   if (router.query.search) {
     setSearch(router.query.search)
