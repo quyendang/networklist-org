@@ -124,8 +124,10 @@ function Home({ changeTheme, theme }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Chainlist</title>
+        <title>ListChain.net</title>
         <link rel="icon" href="/favicon.png" />
+        <meta name="description" content="ListChain.net is a list of EVM networks. Users can use the information to connect their wallets and Web3 middleware providers to the appropriate Chain ID and Network ID to connect to the correct chain." />
+	      <meta name="keywords" content="chain list, chainlist.org, list chain, listchain.net, bep20 chain, erc20 chain, trc20 chain, metamask chain, add chain, polygon chain, crypto chain" />
       </Head>
 
       <main className={styles.main}>
@@ -134,7 +136,7 @@ function Home({ changeTheme, theme }) {
             <div className={ classes.copyCentered }>
               <Typography variant='h1' className={ classes.chainListSpacing }><span className={ classes.helpingUnderline }>ListChain.net</span></Typography>
               <Typography variant='h2' className={ classes.helpingParagraph }>Helping users connect to EVM powered networks</Typography>
-              <Typography className={classes.subTitle}>Chainlist is a list of EVM networks. Users can use the information to connect their wallets and Web3 middleware providers to the appropriate Chain ID and Network ID to connect to the correct chain.</Typography>
+              <Typography className={classes.subTitle}>ListChain.net is a list of EVM networks. Users can use the information to connect their wallets and Web3 middleware providers to the appropriate Chain ID and Network ID to connect to the correct chain.</Typography>
               <Button
                 size='large'
                 color='primary'
