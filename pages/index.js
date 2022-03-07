@@ -85,7 +85,7 @@ function Home({ changeTheme, theme }) {
 
   const [ layout, setLayout ] = useState('grid')
   const [ search, setSearch ] = useState('')
-  const [ hideMultichain, setHideMultichain ] = useState('0')
+  const [ hideMultichain, setHideMultichain ] = useState('1')
   const router = useRouter()
   if (router.query.search) {
     setSearch(router.query.search)
@@ -115,9 +115,9 @@ function Home({ changeTheme, theme }) {
   useEffect(() => {
     const multi = localStorage.getItem('chainlist.org-hideMultichain')
     if(multi) {
-      setHideMultichain(multi)
+      setHideMultichain('1')
     } else {
-      setHideMultichain('0')
+      setHideMultichain('1')
     }
   }, [])
 
