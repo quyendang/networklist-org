@@ -115,7 +115,7 @@ function Home({ changeTheme, theme }) {
   useEffect(() => {
     const multi = localStorage.getItem('chainlist.org-hideMultichain')
     if(multi) {
-      setHideMultichain('1')
+      setHideMultichain(multi)
     } else {
       setHideMultichain('1')
     }
