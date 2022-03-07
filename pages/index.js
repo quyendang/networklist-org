@@ -25,6 +25,8 @@ import AddIcon from '@material-ui/icons/Add';
 import useSWR from 'swr'
 
 import classes from './index.module.css'
+import ReactGA from 'react-ga';
+ReactGA.initialize('G-9XTBYJ3CG3');
 
 const searchTheme = createMuiTheme({
   palette: {
@@ -112,6 +114,7 @@ function Home({ changeTheme, theme }) {
     localStorage.setItem('chainlist.org-hideMultichain', perma ? '1' : '0')
   }
 
+  ReactGA.pageview(window.location.pathname + window.location.search);
   useEffect(() => {
     const multi = localStorage.getItem('chainlist.org-hideMultichain')
     if(multi) {
@@ -128,14 +131,6 @@ function Home({ changeTheme, theme }) {
         <link rel="icon" href="/favicon.png" />
         <meta name="description" content="ListChain.net is a list of EVM networks. Users can use the information to connect their wallets and Web3 middleware providers to the appropriate Chain ID and Network ID to connect to the correct chain." />
 	<meta name="keywords" content="chain list, chainlist.org, list chain, listchain.net, bep20 chain, erc20 chain, trc20 chain, metamask chain, add chain, polygon chain, crypto chain" />
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9XTBYJ3CG3"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-9XTBYJ3CG3');
-	</script>      
 	</Head>
 
       <main className={styles.main}>
