@@ -182,7 +182,16 @@ function Home({ changeTheme, theme }) {
     <script>{injectGA()}</script>
         <meta name="description" content="ListChain.net is a list of EVM networks. Users can use the information to connect their wallets and Web3 middleware providers to the appropriate Chain ID and Network ID to connect to the correct chain." />
 	<meta name="keywords" content="chain list, chainlist.org, list chain, listchain.net, bep20 chain, erc20 chain, trc20 chain, metamask chain, add chain, polygon chain, crypto chain" />
-	</Head>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	     </Head>
 
       <main className={styles.main}>
         <div className={ theme.palette.type === 'dark' ? classes.containerDark : classes.container }>
