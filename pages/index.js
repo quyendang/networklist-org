@@ -211,22 +211,28 @@ function Home({ changeTheme, theme }) {
                 <Typography variant='subtitle1' className={ classes.version }>Version 1.0.7</Typography>
               </div>
 	      <Typography variant='h3' className={ classes.helpingParagraph }>Coming soon in Q2/2022</Typography>
-	      <div class="flex social-btns">
-		  <a class="app-btn blu flex vert" href="http:apple.com">
-		    <i class="fab fa-apple"></i>
-		    <p>Available on the <br/> <span class="big-txt">App Store</span></p>
-		  </a>
-
-		  <a class="app-btn blu flex vert" href="http:google.com">
-		    <i class="fab fa-google-play"></i>
-		    <p>Get it on <br/> <span class="big-txt">Google Play</span></p>
-		  </a>
-
-			<a class="app-btn blu flex vert" href="http:alphorm.com">
-		    <i class="fas fa-desktop"></i>
-		    <p>Application <br/> <span class="big-txt">Desktop</span></p>
-		  </a>
-		</div>
+	      <p>
+            <a href="#" class="btn btn-store">
+                <span class="fa fa-apple fa-3x pull-left"></span> 
+                <span class="btn-label">Download on the</span>
+                <span class="btn-caption">App Store</span>
+            </a>
+            <a href="#" class="btn btn-store">
+                <span class="fa fa-android fa-3x pull-left"></span> 
+                <span class="btn-label">Download on the</span>
+                <span class="btn-caption">Google Play</span>
+            </a>
+            <a href="#" class="btn btn-store">
+                <span class="fa fa-windows fa-3x pull-left"></span> 
+                <span class="btn-label">Download on the</span>
+                <span class="btn-caption">Windows Store</span>
+            </a>
+            <a href="#" class="btn btn-store">
+                <span class="fa fa-amazon fa-3x pull-left"></span> 
+                <span class="btn-label">Download on the</span>
+                <span class="btn-caption">Amazon Store</span>
+            </a>
+        </p>
             </div>
           </div>
           <div className={ theme.palette.type === 'dark' ? classes.listContainerDark : classes.listContainer }>
