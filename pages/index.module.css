@@ -1,27 +1,11 @@
-.btn-store {
-  color: #777777;
-  min-width: 254px;
-  padding: 12px 20px !important;
-  border-color: #dddddd !important;
-}
+ .mdi-36px {
+     font-size: 39px;
+     margin-right: 10px
+ }
 
-.btn-store:focus, 
-.btn-store:hover {
-  color: #ffffff !important;
-  background-color: #168eea;
-  border-color: #168eea !important;
-}
-
-.btn-store .btn-label, 
-.btn-store .btn-caption {
-  display: block;
-  text-align: left;
-  line-height: 1;
-}
-
-.btn-store .btn-caption {
-  font-size: 24px;
-}
+ .container2 {
+     margin-top: 150px
+ }
 
 
 
