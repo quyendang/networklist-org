@@ -23,6 +23,7 @@ import AppsIcon from '@material-ui/icons/Apps';
 import ListIcon from '@material-ui/icons/List';
 import AddIcon from '@material-ui/icons/Add';
 import useSWR from 'swr'
+import { chainIds } from "../components/chains";
 
 import classes from './index.module.css'
 
