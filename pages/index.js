@@ -80,13 +80,46 @@ const searchTheme = createMuiTheme({
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-function Home({ changeTheme, theme }) {
-  const { data, error } = useSWR('https://chainid.network/chains.json', fetcher)
+export async function getStaticProps({ params }) {
+  const chains = await fetcher("https://chainid.network/chains.json");
+  const chainTvls = await fetcher("https://api.llama.fi/chains");
 
-  const [ layout, setLayout ] = useState('grid')
-  const [ search, setSearch ] = useState('')
-  const [ hideMultichain, setHideMultichain ] = useState('1')
-  const router = useRouter()
+  function populateChain(chain) {
+    const chainSlug = chainIds[chain.chainId];
+    if (chainSlug !== undefined) {
+      const defiChain = chainTvls.find((c) => c.name.toLowerCase() === chainSlug);
+      return defiChain === undefined
+        ? chain
+        : {
+            ...chain,
+            tvl: defiChain.tvl,
+            chainSlug,
+          };
+    }
+    return chain;
+  }
+
+  const sortedChains = chains
+    .filter((c) => c.name !== "420coin") // same chainId as ronin
+    .map(populateChain)
+    .sort((a, b) => {
+      return (b.tvl ?? 0) - (a.tvl ?? 0);
+    });
+
+  return {
+    props: {
+      sortedChains,
+    },
+    revalidate: 3600,
+  };
+}
+
+function Home({ changeTheme, theme, sortedChains }) {
+  const data = sortedChains;
+
+  const [search, setSearch] = useState("");
+  const [testnets, setTestnets] = useState(false);
+  const router = useRouter();
   if (router.query.search) {
     setSearch(router.query.search)
     delete router.query.search
