@@ -23,7 +23,7 @@ import AppsIcon from '@material-ui/icons/Apps';
 import ListIcon from '@material-ui/icons/List';
 import AddIcon from '@material-ui/icons/Add';
 import useSWR from 'swr'
-import { chainIds } from "../components/chains";
+// import { chainIds } from "../components/chains";
 
 import classes from './index.module.css'
 
@@ -81,46 +81,47 @@ const searchTheme = createMuiTheme({
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-export async function getStaticProps({ params }) {
-  const chains = await fetcher("https://chainid.network/chains.json");
-  const chainTvls = await fetcher("https://api.llama.fi/chains");
+// export async function getStaticProps({ params }) {
+//   const chains = await fetcher("https://chainid.network/chains.json");
+//   const chainTvls = await fetcher("https://api.llama.fi/chains");
 
-  function populateChain(chain) {
-    const chainSlug = chainIds[chain.chainId];
-    if (chainSlug !== undefined) {
-      const defiChain = chainTvls.find((c) => c.name.toLowerCase() === chainSlug);
-      return defiChain === undefined
-        ? chain
-        : {
-            ...chain,
-            tvl: defiChain.tvl,
-            chainSlug,
-          };
-    }
-    return chain;
-  }
+//   function populateChain(chain) {
+//     const chainSlug = chainIds[chain.chainId];
+//     if (chainSlug !== undefined) {
+//       const defiChain = chainTvls.find((c) => c.name.toLowerCase() === chainSlug);
+//       return defiChain === undefined
+//         ? chain
+//         : {
+//             ...chain,
+//             tvl: defiChain.tvl,
+//             chainSlug,
+//           };
+//     }
+//     return chain;
+//   }
 
-  const sortedChains = chains
-    .filter((c) => c.name !== "420coin") // same chainId as ronin
-    .map(populateChain)
-    .sort((a, b) => {
-      return (b.tvl ?? 0) - (a.tvl ?? 0);
-    });
+//   const sortedChains = chains
+//     .filter((c) => c.name !== "420coin") // same chainId as ronin
+//     .map(populateChain)
+//     .sort((a, b) => {
+//       return (b.tvl ?? 0) - (a.tvl ?? 0);
+//     });
 
-  return {
-    props: {
-      sortedChains,
-    },
-    revalidate: 3600,
-  };
-}
+//   return {
+//     props: {
+//       sortedChains,
+//     },
+//     revalidate: 3600,
+//   };
+// }
 
-function Home({ changeTheme, theme, sortedChains }) {
-  const data = sortedChains;
+function Home({ changeTheme, theme }) {
+  const { data, error } = useSWR('https://chainid.network/chains.json', fetcher)
 
-  const [search, setSearch] = useState("");
-  const [testnets, setTestnets] = useState(false);
-  const router = useRouter();
+  const [ layout, setLayout ] = useState('grid')
+  const [ search, setSearch ] = useState('')
+  const [ hideMultichain, setHideMultichain ] = useState('1')
+  const router = useRouter()
   if (router.query.search) {
     setSearch(router.query.search)
     delete router.query.search
