@@ -1,39 +1,26 @@
-.flex {
- display: flex;
- align-items: center;
- justify-content: center;
+.btn-store {
+  color: #777777;
+  min-width: 254px;
+  padding: 12px 20px !important;
+  border-color: #dddddd !important;
 }
 
-.app {
- &-btn {
-  width: 45%;
-  max-width: 160px;
-  color: #fff;
-  margin: 20px 10px;
+.btn-store:focus, 
+.btn-store:hover {
+  color: #ffffff !important;
+  background-color: #168eea;
+  border-color: #168eea !important;
+}
+
+.btn-store .btn-label, 
+.btn-store .btn-caption {
+  display: block;
   text-align: left;
-  border-radius: 5px;
-  text-decoration: none;
-  font-family: "Lucida Grande", sans-serif;
-  font-size: 10px;
-  text-transform: uppercase;
-  &.blu {
-   background-color: #101010;
-   transition: background-color 0.25s linear;
-   &:hover {
-    background-color: #454545;
-   }
-  }
-  i {
-   width: 20%;
-   text-align: center;
-   font-size: 28px;
-   margin-right: 7px;
-  }
-  .big-txt {
-   font-size: 17px;
-   text-transform: capitalize;
-  }
- }
+  line-height: 1;
+}
+
+.btn-store .btn-caption {
+  font-size: 24px;
 }
 
 
