@@ -210,7 +210,6 @@ function Home({ changeTheme, theme }) {
                 </a>
                 <Typography variant='subtitle1' className={ classes.version }>Version 1.0.7</Typography>
               </div>
-	      <span style="display:block; height: 50;"></span>
 	      <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script><div class="coinmarketcap-currency-widget" data-currencyid="1" data-base="USD" data-secondary="" data-ticker="true" data-rank="true" data-marketcap="true" data-volume="true" data-statsticker="true" data-stats="USD"></div>
 
 	    
